@@ -7,11 +7,15 @@ export const Global = createGlobalStyle `
       padding: 0;
       box-sizing: border-box;
   }
+  
+
 
   :root{
       --cor-de-fundo: #CCCCCC;
       --button: #365195;
       --text-place: #B3B3B3;
+
+ 
   }
 
   html{
@@ -24,10 +28,10 @@ export const Global = createGlobalStyle `
   }
 
   body{
-      background: var(--cor-de-fundo);
-      --webkit-font-smoothing: antialiased;
+     
+     background-color: #CCCCCC;
+      
   }
-
   body, input, textarea,button{
       font-family: 'Roboto', sans-serif;
       font-weight: 400;

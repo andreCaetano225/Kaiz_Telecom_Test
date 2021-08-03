@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.div` 
+   margin-top: 10px;
    text-align: center;
-   margin-top: 20px;
+
+   
 
    button{
        margin-top: 20px;
@@ -43,5 +45,16 @@ export const Content = styled.div`
   img{
       width: 250px;
       height: 250px;
+  }
+
+  span{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+
+      p{
+          margin-left: 15px;
+      }
   }
 `;

@@ -2,7 +2,7 @@ import {Container, Content} from './styles';
 import LogoImg from '../../assets/logo.png';
 import { useEffect, useState } from 'react';
 import { api } from '../../services/api';
-import DefaultImg from '../../assets/default.png';
+import { Pokemons } from '../Pokemons';
 
 interface RandomPokemon {
     id: number;
@@ -14,7 +14,15 @@ interface RandomPokemon {
             }
         }
     }
+    types: [
+         {
+        type: {
+            name: string;
+        
+        }}
+    ]
 }
+
 export function Home (){
     const [randomPokemon,setRandomPokemon] = useState<RandomPokemon | null>(null);
     const [pokemon,setPokemon] = useState(0);
@@ -31,12 +39,12 @@ export function Home (){
     }
 
      useEffect(() => {
-        api.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+        api.get(`pokemon/${pokemon}`)
         .then(response => setRandomPokemon(response.data))
         
     }, [pokemon] )
-   
-   
+    
+       
     
     return(
         <>
@@ -50,15 +58,16 @@ export function Home (){
                 <h2 className={text ? 'text' : 'Notext'}>{text}</h2>
 
                 {randomPokemon && (
-                    <div>
-                     <img src={randomPokemon.sprites.other.dream_world.front_default} alt="imagem do pokemon" />
-                     <h3> {randomPokemon.name}</h3>
-                    </div>
+                    <>
+                    <Pokemons
+                    image={randomPokemon.sprites.other.dream_world.front_default}
+                    name={randomPokemon.name}
+                    type={randomPokemon.types[0].type.name}
+                    />
+                    </>
                 )}
 
               </Content>
-  
-
           </Container>
         </>
     )
